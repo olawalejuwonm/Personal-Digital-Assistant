@@ -41,6 +41,7 @@ while True:
             sg.Popup("Intelligence 2: ", "Oh lads! I couldn't find anything, am still a learner.Kindly report to my master by sending a mail to olawalejuwon@gmail.com", "Thank You")
     except:
         sg.Popup("check your connection")
+    
 
 
             

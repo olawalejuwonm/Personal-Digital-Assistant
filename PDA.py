@@ -12,7 +12,8 @@ import wikipedia
 # except wikipedia.exceptions.PageError:
 #     print("No Result")
 
-
+import pyttsx3
+engine = pyttsx3.init()
 
 import PySimpleGUI as sg
 
@@ -32,16 +33,19 @@ while True:
     try:
         try:
             res = client.query(values[0])
-            sg.Popup("Intelligence 1: ", next(res.results).text, "Click OK to run another check")
+            sg.Popup("Intelligence 1:", next(res.results).text, "Click OK to run another check")
         except (StopIteration, AttributeError):
-            sg.Popup("Intelligence 1: ", "Ops! I found No Result, Click the button below and wait while i run another intelligence check ......")
+            sg.Popup("Intelligence 1:", "Ops! I found No Result, Click the button below and wait while i run another intelligence check ......")
         try:
             sg.Popup(wikipedia.summary(values[0], sentences=2))
         except wikipedia.exceptions.PageError:
-            sg.Popup("Intelligence 2: ", "Oh lads! I couldn't find anything, am still a learner.Kindly report to my master by sending a mail to olawalejuwon@gmail.com", "Thank You")
+            sg.Popup("Intelligence 2:", "Oh lads! I couldn't find anything, am still a learner.Kindly report to my master by sending a mail to olawalejuwon@gmail.com", "Thank You")
+        except wikipedia.exceptions.DisambiguationError:
+            sg.Popup("Intelligence :", "I found similar meaning related to", values[0], "Please simplify it and try again")    
     except:
-        sg.Popup("check your connection")
-    
+        sg.PopupNonBlocking("check your connection")
+        engine.say("Please Check Your Internet Connection")
+    engine.runAndWait()
 
 
             

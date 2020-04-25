@@ -78,8 +78,9 @@ while True:
             engine.say("Dear user, i couldn't get that, i'll try to run another check.")
             engine.runAndWait()
         except Exception:
-            sg.PopupNonBlocking("Please Enter A Prompt")
-            engine.say("Please Enter A Prompt")
+            # sg.PopupNonBlocking("Please Enter A Prompt")
+            # engine.say("Hey!")
+            pass
 
             
         try:
@@ -95,6 +96,7 @@ while True:
             sg.PopupNonBlocking("Intelligence 2:", "I found many similar meaning related to", values[0], "Please make it simple and try again")
             engine.say("That's too complex for me,kindly simplify it and re-try.")
         except wikipedia.exceptions.WikipediaException:
+            sg.PopupNonBlocking("Please Enter A Prompt")
             engine.say("I can't assist without your command")  
 
     except:

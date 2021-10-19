@@ -1,4 +1,4 @@
-copy the code below and run it on your terminal
+Clone the repository and run it on your terminal
 make sure you have the requirements file in the same directory with the PDA file and 
 cd your terminal to where the directory is before running the code below.
 
